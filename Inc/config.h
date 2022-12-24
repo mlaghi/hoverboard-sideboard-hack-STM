@@ -71,8 +71,8 @@
 
 /* ==================================== VARIANT DEBUG ==================================== */
 #ifdef VARIANT_DEBUG
-  #define SERIAL_DEBUG                        // [-] Define for Serial Debug via the serial port
-  #define SERIAL_AUX_RX                       // [-] Use AUX4, AUX5 as USART port
+  //#define SERIAL_DEBUG                        // [-] Define for Serial Debug via the serial port
+  //#define SERIAL_AUX_RX                       // [-] Use AUX4, AUX5 as USART port
   // #define SERIAL_AUX_TX                       // [-] Use AUX4, AUX5 as USART port
 
   #define CONTROL_IBUS
@@ -85,8 +85,8 @@
 /* ==================================== VARIANT HOVERCAR ==================================== */
 #ifdef VARIANT_HOVERCAR
   #define SERIAL_CONTROL                      // [-] Define for Serial Control via the serial port
-  #define SERIAL_FEEDBACK                     // [-] Define for Serial Feedback via the serial port
-  #define SERIAL_AUX_RX                       // [-] Use AUX4, AUX5 as USART port
+  // #define SERIAL_FEEDBACK                     // [-] Define for Serial Feedback via the serial port
+  // #define SERIAL_AUX_RX                       // [-] Use AUX4, AUX5 as USART port
   // #define SERIAL_AUX_TX                       // [-] Use AUX4, AUX5 as USART port
 
   #define CONTROL_IBUS

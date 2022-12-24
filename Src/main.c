@@ -74,8 +74,7 @@ uint32_t     main_loop_counter;                       // main loop counter to pe
   * @brief  The application entry point.
   * @retval int
   */
-int main(void)
-{
+int main(void) {
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -114,9 +113,9 @@ int main(void)
     HAL_Delay(DELAY_IN_MAIN_LOOP);
 
     handle_mpu6050();                               // Handle of the MPU-6050 IMU sensor
-    handle_sensors();                               // Handle of the optical sensors
+    // handle_sensors();                               // Handle of the optical sensors
     handle_usart();                                 // Handle of the USART data
-    handle_leds();                                  // Handle of the sideboard LEDs
+    // handle_leds();                                  // Handle of the sideboard LEDs
 
     main_loop_counter++;
 

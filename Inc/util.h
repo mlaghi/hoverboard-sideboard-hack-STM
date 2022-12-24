@@ -28,13 +28,16 @@
 #ifdef SERIAL_CONTROL
 typedef struct{
   uint16_t  start;
-  int16_t   pitch;      // Angle
-  int16_t   dPitch;     // Angle derivative
-  int16_t   cmd1;       // RC Channel 1
-  int16_t   cmd2;       // RC Channel 2
-  uint16_t  sensors;    // RC Switches and Optical sideboard sensors
+  int16_t   temp;      // Temperature
+  int16_t   roll;      // Angle
+  int16_t   pitch;     // Angle
+  int16_t   yaw;       // Angle
+  int16_t   accX;      // Accelleration
+  int16_t   accY;      // Accelleration
+  int16_t   accZ;      // Accelleration
   uint16_t  checksum;
 } SerialSideboard;
+
 #endif
 /* Rx structure USART MAIN */
 #ifdef SERIAL_FEEDBACK

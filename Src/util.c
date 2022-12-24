@@ -184,7 +184,7 @@ void input_init(void) {
         UART_DisableRxErrors(&huart1);
     #endif
 
-    intro_demo_led(100);                                                // Short LEDs intro demo with 100 ms delay. This also gives some time for the MPU-6050 to power-up.	
+    // intro_demo_led(100);                                                // Short LEDs intro demo with 100 ms delay. This also gives some time for the MPU-6050 to power-up.	
 
     #ifdef MPU_SENSOR_ENABLE
         if(mpu_config()) {                                              // IMU MPU-6050 config
@@ -293,12 +293,14 @@ void handle_usart(void) {
     #ifdef SERIAL_CONTROL
         if (main_loop_counter % 5 == 0 && __HAL_DMA_GET_COUNTER(huart2.hdmatx) == 0) {     // Check if DMA channel counter is 0 (meaning all data has been transferred)
             Sideboard.start     = (uint16_t)SERIAL_START_FRAME;
+            Sideboard.temp      = (int16_t)mpu.temp;
+            Sideboard.roll      = (int16_t)mpu.euler.roll;
             Sideboard.pitch     = (int16_t)mpu.euler.pitch;
-            Sideboard.dPitch    = (int16_t)mpu.gyro.y;
-            Sideboard.cmd1      = (int16_t)cmd1;
-            Sideboard.cmd2      = (int16_t)cmd2; 
-            Sideboard.sensors   = (uint16_t)( (cmdSwitch << 8)  | (sensor1 | (sensor2 << 1) | (mpuStatus << 2)) );
-            Sideboard.checksum  = (uint16_t)(Sideboard.start ^ Sideboard.pitch ^ Sideboard.dPitch ^ Sideboard.cmd1 ^ Sideboard.cmd2 ^ Sideboard.sensors);
+            Sideboard.yaw       = (int16_t)mpu.euler.yaw;
+            Sideboard.accX      = (int16_t)mpu.accel.x;
+            Sideboard.accY      = (int16_t)mpu.accel.y;
+            Sideboard.accZ      = (int16_t)mpu.accel.z;
+            Sideboard.checksum  = (uint16_t)(Sideboard.start ^ Sideboard.temp ^ Sideboard.roll ^ Sideboard.pitch ^ Sideboard.yaw ^ Sideboard.accX ^ Sideboard.accX ^ Sideboard.accZ);
 
             HAL_UART_Transmit_DMA(&huart2, (uint8_t *)&Sideboard, sizeof(Sideboard));
         }
