@@ -12,12 +12,18 @@ This repository implements the firmware for the hoveboard sideboards. The hovebo
 Table of Contents
 =======================
 
+* [Changes in this fork](#changes-in-this-fork)
 * [Hardware](#hardware)
-* [Example Variants ](#example-variants)
+* [Example Variants](#example-variants)
 * [Flashing](#flashing)
 * [Wiring iBUS Receiver](#wiring-ibus-receiver)
 * [3D Visualization Demo](#3d-visualization-demo)
 * [Contributions](#contributions)
+
+---
+## Changes in this fork
+
+Since I had a sideboard which was with the custom STM processor STM32FEBKC6T6 for which I could not find any header files I tried it with the headers loader and assembly code of the stm32f103x6 which workes fine.
 
 ---
 ## Hardware
